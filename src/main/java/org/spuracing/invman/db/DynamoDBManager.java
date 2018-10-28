@@ -68,7 +68,7 @@ public class DynamoDBManager {
 		Map<String, Object> infoMap = new HashMap<String, Object>();
 		infoMap.put("Quantity", quantity);
 		item = StringUtils.capatilizeFirstLetter(item);
-		
+
 		return table.putItem(new Item().withPrimaryKey(Constants.PRIMARY_KEY, item).withMap("Info", infoMap));
 	}
 	
