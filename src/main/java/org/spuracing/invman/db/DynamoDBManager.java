@@ -44,8 +44,7 @@ public class DynamoDBManager {
         } catch (Exception e) {
             throw new AmazonClientException(
                     "Cannot load the credentials from the credential profiles file. " +
-                    "Please make sure that your credentials file is at the correct " +
-                    "location (C:\\Users\\Imath\\.aws\\credentials), and is in valid format.",
+                    "Please make sure that your credentials file is at the correct location",
                     e);
         }
         
@@ -55,9 +54,12 @@ public class DynamoDBManager {
 	            .build();
 
 		database = new DynamoDB(client);
-		table = database.getTable(Constants.TABLE_NAME);
 	}
 
+	public void setTable(String tableName) {
+		table = database.getTable(tableName);
+	}
+	
 	public PutItemOutcome addItemToTable(String item, int quantity) {
 		if (quantity < 0) {
 			throw new RuntimeException("Cannot have a negative quantity");
@@ -67,7 +69,7 @@ public class DynamoDBManager {
 		infoMap.put("Quantity", quantity);
 		item = StringUtils.capatilizeFirstLetter(item);
 		
-		return table.putItem(new Item().withPrimaryKey(Constants.PRIMARY_KEY, item).withMap("info", infoMap));
+		return table.putItem(new Item().withPrimaryKey(Constants.PRIMARY_KEY, item).withMap("Info", infoMap));
 	}
 	
 	public DeleteItemOutcome removeItemFromTable(String item) {
