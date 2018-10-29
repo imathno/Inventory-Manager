@@ -2,8 +2,8 @@ package org.spuracing.invman;
 
 import org.spuracing.invman.db.DynamoDBManager;
 import org.spuracing.invman.db.DynamoTableReader;
-import org.spuracing.invman.gui.InvManApplication;
-import org.spuracing.invman.gui.InvManPreloader;
+import org.spuracing.invman.gui.InventoryManagerApplication;
+import org.spuracing.invman.gui.InventoryManagerApplicationPreloader;
 
 import com.sun.javafx.application.LauncherImpl;
 
@@ -22,7 +22,7 @@ public class Main {
 //		manager.addItemToTable("Nitrous", 38093);
 //		DynamoTableReader reader = new DynamoTableReader(DynamoDBManager.getInstance().getTable());
 //		System.out.println(reader.getItemQuantity(Constants.PRIMARY_KEY, "D"));
-		LauncherImpl.launchApplication(InvManApplication.class, InvManPreloader.class, args);
+		LauncherImpl.launchApplication(InventoryManagerApplication.class, InventoryManagerApplicationPreloader.class, args);
 	}
 
 }
