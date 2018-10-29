@@ -20,8 +20,7 @@ public class InventoryManagerApplicationController implements Initializable {
 		System.out.println("Something happened");
 	}
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize(URL location, ResourceBundle resources) {
 		String[] arr = {"Umm", "Hey", "bye"};
 		TextFields.bindAutoCompletion(itemField, arr);
 	}

@@ -21,6 +21,6 @@ public class DynamoTableReader {
 		Item item = table.getItem(spec);
 		JSONObject jsonObject = (JSONObject) new JSONParser().parse(item.toJSON());
 		jsonObject = (JSONObject) jsonObject.get("Info");
-		return Math.toIntExact((long)jsonObject.get("Quantity"));
+		return Math.toIntExact((Long)jsonObject.get("Quantity"));
 	}
 }
